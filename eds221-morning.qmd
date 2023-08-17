@@ -1,0 +1,67 @@
+---
+title: "eds221-morning"
+format: html
+editor: visual
+---
+
+## Functions
+
+```{r}
+double_value <- function(my_dollars) {
+  print(2 * my_dollars)
+}
+
+double_value(10.13)
+```
+
+```{r}
+monthly_income <- c(42, 50, 61.75, 89.50)
+
+double_value(monthly_income)
+```
+
+Create a function that returns an awesome restaurant name given a cool animal and your favorite food.
+
+```{r}
+name_rest <- function(animal, food) {
+  print(paste0(animal, food))
+}
+
+name_rest(animal = "hawk", food = "pizza")
+```
+
+Given a temperature in degrees (F), write a function that converts it to Celsius.
+
+```{r}
+
+convert_f_to_c <- function(temp_f) {
+  print((temp_f - 32) * (5 / 9))
+}
+
+convert_f_to_c(temp_f = 52)
+```
+
+Create a function that given inputs of age and hometown, returns "I am \_ years old, and I'm from\_"
+
+```{r}
+age_hometown <- function(age, hometown) {
+  print(paste("I am", age, "years old", "and I'm from", hometown))
+}
+
+age_hometown(age = 25, hometown = "Bakersfield")
+```
+
+```{r}
+#You dont always need to put print at the end of the function 
+double_value2 <- function(dollars) {
+  dollars * 2
+}
+
+double_value2(dollars = 10)
+```
+
+Print statements and return statements
+
+print: "show me"
+
+return: store this so I can use it later
