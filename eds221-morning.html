@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="functions-1">Functions</h2>
 <p>Create a subset within a function and then return something based on that subset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dog_choice <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">dog_name =</span> <span class="fu">c</span>(<span class="st">"korra"</span>, <span class="st">"banjo"</span>, <span class="st">"teddy"</span>, <span class="st">"waffle"</span>, <span class="st">"tallie"</span>),</span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dog_choice <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">dog_name =</span> <span class="fu">c</span>(<span class="st">"korra"</span>, <span class="st">"Bbnjo"</span>, <span class="st">"teddy"</span>, <span class="st">"waffle"</span>, <span class="st">"tallie"</span>),</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">food =</span> <span class="fu">c</span>(<span class="st">"everything"</span>, <span class="st">"salmon"</span>, <span class="st">"pancakes"</span>, <span class="st">"chicken"</span>, <span class="st">"enchiladas"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -230,9 +230,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dog_menu</span>(<span class="st">"Waffle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dog_menu</span>(<span class="st">"waffle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "My name is  and my favorite food is "</code></pre>
+<pre><code>[1] "My name is waffle and my favorite food is chicken"</code></pre>
 </div>
 </div>
 </section>
@@ -268,6 +268,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The mean value of eruptions is 3.48778308823529"
 [1] "The mean value of waiting is 70.8970588235294"</code></pre>
+</div>
+</div>
+<p>Create a function to calculate the betz limit:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>calculate_betz_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(air_density,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                                    rotor_radius,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                                    wind_velocity) {</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (wind_velocity <span class="sc">&gt;</span> <span class="dv">130</span>) {</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"Whoa that's a pretty high wind speed are you sure?"</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (rotor_radius <span class="sc">&lt;</span><span class="dv">0</span>) {</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">"Rotor radius must be a pos value (meters)"</span>) }</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.3</span> <span class="sc">*</span> air_density <span class="sc">*</span> pi <span class="sc">*</span> (rotor_radius <span class="sc">^</span> <span class="dv">2</span>) <span class="sc">*</span> (wind_velocity <span class="sc">^</span> <span class="dv">3</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_betz_windpower</span>(<span class="at">air_density =</span> <span class="fl">1.2</span>, <span class="at">rotor_radius =</span> <span class="dv">20</span>, <span class="at">wind_velocity =</span> <span class="dv">1020</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in calculate_betz_windpower(air_density = 1.2, rotor_radius = 20, :
+Whoa that's a pretty high wind speed are you sure?</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 480079188969</code></pre>
 </div>
 </div>
 </section>

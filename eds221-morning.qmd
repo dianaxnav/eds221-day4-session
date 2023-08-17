@@ -109,7 +109,7 @@ my_value <- tempk_convert(scale = "metric", temp_k = 47)
 Create a subset within a function and then return something based on that subset
 
 ```{r}
-dog_choice <- data.frame(dog_name = c("korra", "banjo", "teddy", "waffle", "tallie"),
+dog_choice <- data.frame(dog_name = c("korra", "Bbnjo", "teddy", "waffle", "tallie"),
                          food = c("everything", "salmon", "pancakes", "chicken", "enchiladas"))
 
 ```
@@ -122,7 +122,7 @@ dog_menu <- function(enter_dog_name) {
 ```
 
 ```{r}
-dog_menu("Waffle")
+dog_menu("waffle")
 ```
 
 ## Function with a for loop
@@ -143,4 +143,23 @@ df_means(df = mtcars)
 
 ```{r}
 df_means(faithful)
+```
+
+Create a function to calculate the betz limit:
+
+```{r}
+calculate_betz_windpower <- function(air_density,
+                                    rotor_radius,
+                                    wind_velocity) {
+  if (wind_velocity > 130) {
+    warning("Whoa that's a pretty high wind speed are you sure?")
+  }
+  if (rotor_radius <0) {
+      stop("Rotor radius must be a pos value (meters)") }
+        0.3 * air_density * pi * (rotor_radius ^ 2) * (wind_velocity ^ 3)
+}
+```
+
+```{r}
+calculate_betz_windpower(air_density = 1.2, rotor_radius = 20, wind_velocity = 1020)
 ```
